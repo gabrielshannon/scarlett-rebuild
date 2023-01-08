@@ -2,10 +2,16 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
+import ArticleCard from './components/ArticleCard'
+
+
+import { gql } from '@apollo/client';
+
+import { getApolloClient } from './api/hello'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Home({ page, posts }) {
   return (
     <>
       <Head>
@@ -116,8 +122,61 @@ export default function Home() {
               with&nbsp;Vercel.
             </p>
           </a>
+          <ArticleCard posts={posts} pages={page} />
         </div>
       </main>
     </>
   )
+}
+
+export async function getStaticProps() {
+  const apolloClient = getApolloClient();
+
+  const data = await apolloClient.query({
+    query: gql`
+      {
+        generalSettings {
+          title
+          description
+        }
+
+        posts(first: 9) {
+          edges {
+            node {
+              id
+              excerpt
+              title
+              slug
+              featuredImage {
+                node {
+                  mediaItemUrl
+                }
+              }
+            }
+          }
+        }
+      }
+    `,
+  });
+
+  const posts = data?.data.posts.edges
+    .map(({ node }) => node)
+    .map((post) => {
+      return {
+        ...post,
+        path: `/posts/${post.slug}`,
+      };
+    });
+
+  const page = {
+    ...data?.data.generalSettings,
+  };
+
+
+  return {
+    props: {
+      page,
+      posts,
+    },
+  };
 }
