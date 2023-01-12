@@ -10,34 +10,30 @@ import { getApolloClient } from './api/hello';
 
 const inter = Inter({ subsets: ['latin'] });
 
-
-
 const SliderData = [
   {
-    image: "https://scarlettdata.online/wp-content/uploads/2022/10/5.jpg",
+    image: 'https://scarlettdata.online/wp-content/uploads/2022/10/5.jpg',
   },
   {
-    image: "https://scarlettdata.online/wp-content/uploads/2022/10/3-scaled.jpg",
+    image:
+      'https://scarlettdata.online/wp-content/uploads/2022/10/3-scaled.jpg',
   },
   {
-    image: "https://scarlettdata.online/wp-content/uploads/2022/10/1-1-scaled.jpg",
+    image:
+      'https://scarlettdata.online/wp-content/uploads/2022/10/1-1-scaled.jpg',
   },
 ];
 
 export default function Home({ page, posts }) {
-  const [current, setCurrent] = useState(0)
+  const [current, setCurrent] = useState(0);
 
   const [animate, setAnimate] = useState(false);
-  const length = SliderData.length
-
-  
+  const length = SliderData.length;
 
   const nextSlide = () => {
-    setCurrent(current === length - 1 ? 0 : current + 1)
+    setCurrent(current === length - 1 ? 0 : current + 1);
     setAnimate(!animate);
-  }
-
-  
+  };
 
   const handleClick = () => setAnimate(!animate);
 
@@ -52,42 +48,35 @@ export default function Home({ page, posts }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <div class="home_section">
-          <div className="gallery_section">
-          <img class="slide_img" src="https://scarlettdata.online/wp-content/uploads/2022/10/5.jpg"></img>
-          </div>
-            {/* {SliderData.map((slide, index) => {
-              return (
-                <div
-                  className={
-                    index === current
-                      ? 'gallery_section active'
-                      : 'gallery_section'
-                  }
-                  key={index}
-                >
-                  {index === current && (
-                    <img
-                      onClick={nextSlide}
-                      class="active_slide_img"
-                      src={slide.image}
-                    />
-                  )}
-                </div>
-              );
-            })} */}
-          {/* </div> */}
-
-          <p class="desktop_menu">
-            <a href="">Home</a>,
-            <a href="">Works</a>,
-            <a href="">About</a>,
-            <a href="">Contact</a>
-          </p>
-        </div>
-        {/* <ArticleCard posts={posts} pages={page} /> */}
-      </main>
+      <div className="hero_section">
+        {SliderData.map((slide, index) => {
+          return (
+            <div
+              className=
+                'gallery_section'
+              
+              key={index}
+            >
+              {index === current && (
+                <>
+                <p class="desktop_logo">
+                  Scarlett Casciello
+                  </p>
+                  <p class="desktop_menu">
+                    <a href="">Home</a>,<a href="">Works</a>,
+                    <a href="">About</a>,<a href="">Contact</a>
+                  </p>
+                  <img
+                    onClick={nextSlide}
+                    class="slide_img"
+                    src={slide.image}
+                  ></img>
+                </>
+              )}
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 }
@@ -141,4 +130,15 @@ export async function getStaticProps() {
       posts,
     },
   };
+}
+
+{
+}
+
+{
+  /* </div> */
+}
+
+{
+  /* <ArticleCard posts={posts} pages={page} /> */
 }
