@@ -63,8 +63,10 @@ export default function Home({ page, posts }) {
                   Scarlett Casciello
                   </p>
                   <p class="desktop_menu">
-                    <a href="">Home</a>,<a href="">Works</a>,
-                    <a href="">About</a>,<a href="">Contact</a>
+                    <a class="title_option" href="">Home</a>,
+                    <a class="title_option" href="/works">Works</a>,
+                    <a class="title_option" href="">About</a>,
+                    <a class="title_option" href="">Contact</a>
                   </p>
                   <img
                     onClick={nextSlide}

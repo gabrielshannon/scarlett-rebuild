@@ -116,9 +116,10 @@ a {
   left: 50%;
   transform: translate(-50%, 0);
   top: 5px;
-  font-size: 24px;
+  font-size: 28px;
   color: white;
   z-index: 1000;
+  text-decoration: underline;
 }
 
 .desktop_menu {
@@ -147,6 +148,20 @@ a {
   cursor: pointer;
 }
 
+.title_option {
+  position: relative;
+  top: 0;
+  transition: top ease 0.1s;
+}
+
+.title_option:hover {
+  top: -10px;
+}
+
+@keyframes menuNudge {
+  from { transform: translateY(0%) }
+  to { transform: translateY(1%) }
+}
 
 @keyframes fadeImage {
   from { opacity: 0; }
