@@ -85,9 +85,6 @@ body {
   overflow-x: hidden;
 }
 
-body {
-}
-
 a {
   color: inherit;
   text-decoration: none;
@@ -157,6 +154,61 @@ a {
 .title_option:hover {
   top: -10px;
 }
+/* 
+///// */
+
+.works_grid {
+  display: grid;                                                /* 1 */
+  /* grid-auto-rows: 50px;                                       2 */
+  grid-gap: 10px;                                                 
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));   
+}
+
+grid-container {
+  display: grid;                                                /* 1 */
+  grid-auto-rows: 50px;                                         /* 2 */
+  grid-gap: 10px;                                               /* 3 */
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));   /* 4 */
+}
+
+[short] {
+  grid-row: span 1;                                             /* 5 */
+  background-color: green;
+}
+
+[tall] {
+  grid-row: span 2;
+  background-color: crimson;
+}
+
+[taller] {
+  grid-row: span 3;
+  background-color: blue;
+}
+
+[tallest] {
+  grid-row: span 4;
+  background-color: gray;
+}
+
+.post_feature_outer {
+  position: relative;
+}
+.post_feature_img {
+  width: 100%;
+}
+
+.post_feature_title {
+  position: absolute;
+  position: absolute;
+  top: 50%;  
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: 'Queens';
+}
+
+
 
 @keyframes menuNudge {
   from { transform: translateY(0%) }
@@ -167,3 +219,5 @@ a {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+/* https://stackoverflow.com/questions/43901955/create-a-masonry-grid-with-flexbox-or-other-css */
