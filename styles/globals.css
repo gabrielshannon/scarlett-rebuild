@@ -101,6 +101,12 @@ a {
   src: url('../public/fonts/QueensCompressedTrial-Light.ttf');
 }
 
+@font-face {
+  font-family: 'Canela';
+  src: url('../public/fonts/Canela-Thin.ttf');
+}
+
+
 .home_section {
   height: 100vh;
   display: flex;
@@ -164,6 +170,13 @@ a {
   grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));   
 }
 
+
+display: grid;
+grid-template-areas:
+  "one two two"
+  "one three four"
+  "five three six";
+
 grid-container {
   display: grid;                                                /* 1 */
   grid-auto-rows: 50px;                                         /* 2 */
@@ -206,6 +219,21 @@ grid-container {
   transform: translate(-50%, -50%);
   color: white;
   font-family: 'Queens';
+}
+
+
+/* //////////// ABOUT */
+
+.about {
+  padding: 32px;
+  font-family: 'Canela';
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.bio_section {
+  display: flex;
+  flex-direction: row;
 }
 
 

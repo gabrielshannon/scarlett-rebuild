@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { Inter } from '@next/font/google';
 import styles from '../styles/Home.module.css';
-import ArticleCard from './components/ArticleCard';
+
 import { useState, useEffect } from 'react';
 
 import { gql } from '@apollo/client';
@@ -65,7 +65,7 @@ export default function Home({ page, posts }) {
                   <p class="desktop_menu">
                     <a class="title_option" href="">Home</a>,
                     <a class="title_option" href="/works">Works</a>,
-                    <a class="title_option" href="">About</a>,
+                    <a class="title_option" href="/about">About</a>,
                     <a class="title_option" href="">Contact</a>
                   </p>
                   <img
@@ -83,56 +83,7 @@ export default function Home({ page, posts }) {
   );
 }
 
-export async function getStaticProps() {
-  const apolloClient = getApolloClient();
 
-  const data = await apolloClient.query({
-    query: gql`
-      {
-        generalSettings {
-          title
-          description
-        }
-
-        posts(first: 9) {
-          edges {
-            node {
-              id
-              excerpt
-              title
-              slug
-              featuredImage {
-                node {
-                  mediaItemUrl
-                }
-              }
-            }
-          }
-        }
-      }
-    `,
-  });
-
-  const posts = data?.data.posts.edges
-    .map(({ node }) => node)
-    .map((post) => {
-      return {
-        ...post,
-        path: `/posts/${post.slug}`,
-      };
-    });
-
-  const page = {
-    ...data?.data.generalSettings,
-  };
-
-  return {
-    props: {
-      page,
-      posts,
-    },
-  };
-}
 
 {
 }
@@ -142,5 +93,5 @@ export async function getStaticProps() {
 }
 
 {
-  /* <ArticleCard posts={posts} pages={page} /> */
+
 }
