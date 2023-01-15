@@ -5,24 +5,109 @@ import ArticleCard from './components/ArticleCard';
 import { getApolloClient } from './api/hello';
 import Link from 'next/link';
 
+// const works = ({ page, posts }) => {
+//   return (
+//     <div>
+//       <main className="BoldFont">
+//         <div className="works_grid">
+//           <div class="post_feature_outer tall">
+//             <a href="/posts/test-post-8">
+//               <div class="tall">
+//                 <h1 class="post_feature_title">Test Post 8</h1>
+//                 <img
+//                   class="post_feature_img"
+//                   src="https://scarlettdata.online/wp-content/uploads/2022/10/1-2-scaled.jpg"
+//                 ></img>
+//               </div>
+//             </a>
+//           </div>
+//           <div class="post_feature_outer short">
+//             <a href="/posts/vouge-shoot">
+              
+//                 <h1 class="post_feature_title">Vouge Shoot</h1>
+//                 <img
+//                   class="post_feature_img"
+//                   src="https://scarlettdata.online/wp-content/uploads/2022/10/5.jpg"
+//                 ></img>
+              
+//             </a>
+//           </div>
+//           <div class="post_feature_outer tall">
+//             <a href="/posts/test-post-8">
+//               <div class="tall">
+//                 <h1 class="post_feature_title">Tall</h1>
+//                 <img
+//                   class="post_feature_img"
+//                   src="https://scarlettdata.online/wp-content/uploads/2022/10/1-2-scaled.jpg"
+//                 ></img>
+//               </div>
+//             </a>
+//           </div>
+//           <div class="post_feature_outer short">
+//             <a href="/posts/vouge-shoot">
+//               <div class="">
+//                 <h1 class="post_feature_title">Short</h1>
+//                 <img
+//                   class="post_feature_img"
+//                   src="https://scarlettdata.online/wp-content/uploads/2022/10/5.jpg"
+//                 ></img>
+//               </div>
+//             </a>
+//           </div>
+//           <div class="post_feature_outer tall">
+//             <a href="/posts/test-post-8">
+//               <div class="tall">
+//                 <h1 class="post_feature_title">Tall</h1>
+//                 <img
+//                   class="post_feature_img"
+//                   src="https://scarlettdata.online/wp-content/uploads/2022/10/1-2-scaled.jpg"
+//                 ></img>
+//               </div>
+//             </a>
+//           </div>
+//           <div class="post_feature_outer short">
+//             <a href="/posts/vouge-shoot">
+//               <div class="">
+//                 <h1 class="post_feature_title">Short</h1>
+//                 <img
+//                   class="post_feature_img"
+//                   src="https://scarlettdata.online/wp-content/uploads/2022/10/5.jpg"
+//                 ></img>
+//               </div>
+//             </a>
+//           </div>
+          
+          
+//         </div>
+//       </main>
+//     </div>
+//   );
+// };
+
 const works = ({ page, posts }) => {
   return (
     <div>
       <main className="BoldFont">
+      <p class="works_menu">
+                    <a class="title_option" href="/">HOME</a>,
+                    <a class="title_option" href="/works">WORKS</a>,
+                    <a class="title_option" href="/about">ABOUT</a>,
+                    <a class="title_option" href="">CONTACT</a>
+        </p>
         <div className="works_grid">
           {posts &&
             posts.length > 0 &&
             posts.map((post) => (
-              <div className="post_feature_outer">
-                {console.log(post)}
+              <div className={`post_feature_outer ` + post.tags.edges[0].node.name}>
+                {console.log(post.tags.edges[0].node.name)}
                 <Link href={post.path}>
-                  <div class="short">
+              
                     <h1 className="post_feature_title">{post.title}</h1>
                     <img
                       className="post_feature_img"
                       src={post.featuredImage.node.mediaItemUrl}
                     />
-                  </div>
+              
                 </Link>
               </div>
             ))}
@@ -37,6 +122,7 @@ const works = ({ page, posts }) => {
     </div>
   );
 };
+
 export async function getStaticProps() {
   const apolloClient = getApolloClient();
 
