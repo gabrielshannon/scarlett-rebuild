@@ -191,7 +191,7 @@ a {
   display: grid;                                                /* 1 */
   /* grid-auto-rows: 50px;                                       2 */
   grid-gap: 5px;                                                 
-  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));   
+  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));   
   overflow: none;
 }
 
