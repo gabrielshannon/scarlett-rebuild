@@ -51,23 +51,25 @@ export default function Home({ page, posts }) {
       <div className="hero_section">
         {SliderData.map((slide, index) => {
           return (
-            <div
-              className=
-                'gallery_section'
-              
-              key={index}
-            >
+            <div className="gallery_section" key={index}>
               {index === current && (
                 <>
-                <p class="desktop_logo">
-                  Scarlett Casciello
-                  </p>
-                  <p class="desktop_menu">
-                  <a class="title_option" href="/">HOME</a>,
-                    <a class="title_option" href="/works">WORKS</a>,
-                    <a class="title_option" href="/about">ABOUT</a>,
-                    <a class="title_option" href="">CONTACT</a>
-                  </p>
+                  <p class="desktop_logo">Scarlett Casciello</p>
+                  <navbar class="desktop_menu">
+                    <div class="title_option">
+                      <a href="/">HOME</a>,
+                    </div>
+                    <div class="title_option">
+                      <a href="/works">WORKS</a>,
+                    </div>
+                    <div class="title_option">
+                      <a href="/about">ABOUT</a>,
+                    </div>
+
+                    <div class="title_option">
+                      <a href="">CONTACT</a>
+                    </div>
+                  </navbar>
                   <img
                     onClick={nextSlide}
                     class="slide_img"
@@ -83,8 +85,6 @@ export default function Home({ page, posts }) {
   );
 }
 
-
-
 {
 }
 
@@ -93,7 +93,4 @@ export default function Home({ page, posts }) {
 }
 
 {
-
 }
-
-
