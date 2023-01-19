@@ -5,102 +5,62 @@ import ArticleCard from './components/ArticleCard';
 import { getApolloClient } from './api/hello';
 import Link from 'next/link';
 import { HideScroll } from 'react-hide-on-scroll';
-
-// const works = ({ page, posts }) => {
-//   return (
-//     <div>
-//       <main className="BoldFont">
-//         <div className="works_grid">
-//           <div class="post_feature_outer tall">
-//             <a href="/posts/test-post-8">
-//               <div class="tall">
-//                 <h1 class="post_feature_title">Test Post 8</h1>
-//                 <img
-//                   class="post_feature_img"
-//                   src="https://scarlettdata.online/wp-content/uploads/2022/10/1-2-scaled.jpg"
-//                 ></img>
-//               </div>
-//             </a>
-//           </div>
-//           <div class="post_feature_outer short">
-//             <a href="/posts/vouge-shoot">
-
-//                 <h1 class="post_feature_title">Vouge Shoot</h1>
-//                 <img
-//                   class="post_feature_img"
-//                   src="https://scarlettdata.online/wp-content/uploads/2022/10/5.jpg"
-//                 ></img>
-
-//             </a>
-//           </div>
-//           <div class="post_feature_outer tall">
-//             <a href="/posts/test-post-8">
-//               <div class="tall">
-//                 <h1 class="post_feature_title">Tall</h1>
-//                 <img
-//                   class="post_feature_img"
-//                   src="https://scarlettdata.online/wp-content/uploads/2022/10/1-2-scaled.jpg"
-//                 ></img>
-//               </div>
-//             </a>
-//           </div>
-//           <div class="post_feature_outer short">
-//             <a href="/posts/vouge-shoot">
-//               <div class="">
-//                 <h1 class="post_feature_title">Short</h1>
-//                 <img
-//                   class="post_feature_img"
-//                   src="https://scarlettdata.online/wp-content/uploads/2022/10/5.jpg"
-//                 ></img>
-//               </div>
-//             </a>
-//           </div>
-//           <div class="post_feature_outer tall">
-//             <a href="/posts/test-post-8">
-//               <div class="tall">
-//                 <h1 class="post_feature_title">Tall</h1>
-//                 <img
-//                   class="post_feature_img"
-//                   src="https://scarlettdata.online/wp-content/uploads/2022/10/1-2-scaled.jpg"
-//                 ></img>
-//               </div>
-//             </a>
-//           </div>
-//           <div class="post_feature_outer short">
-//             <a href="/posts/vouge-shoot">
-//               <div class="">
-//                 <h1 class="post_feature_title">Short</h1>
-//                 <img
-//                   class="post_feature_img"
-//                   src="https://scarlettdata.online/wp-content/uploads/2022/10/5.jpg"
-//                 ></img>
-//               </div>
-//             </a>
-//           </div>
-
-//         </div>
-//       </main>
-//     </div>
-//   );
-// };
+import { useState, useEffect } from 'react';
+import { useDetectScroll } from '@smakss/react-scroll-direction';
 
 const works = ({ page, posts }) => {
+  const [scrollDir] = useDetectScroll({});
+
+  const [navbarOn, setNavbar] = useState(false);
+
+  const changeBackground = () => {
+    if (window.scrollY) {
+      setNavbar(true);
+    }
+  };
+
+  useEffect(() => {
+    console.log(scrollDir)
+  }, [scrollDir])
+  
+
   return (
     <div>
       <main className="BoldFont">
+        <div className="app">
+   
+        </div>
 
-          <div >
-            Hidden on scrolling down
+        <navbar class=
+        { scrollDir === 'down' 
+        ?  'navbar-work' 
+        : 'navbar-work fadeIn'
+        }
+        >
+
+        {/* <navbar class={ scrollDir === 'still' ? 'navbar-work active' : scrollDir === 'down'  ? 'navbar-work active' : 'navbar-work'}> */}
+
+          <div class="title_option">
+            <a href="/">HOME</a>,
           </div>
-     
-        <div className="works_grid">
+          <div class="title_option">
+            <a href="/works">WORKS</a>,
+          </div>
+          <div class="title_option">
+            <a href="/about">ABOUT</a>,
+          </div>
+
+          <div class="title_option">
+            <a href="/contact">CONTACT</a>
+          </div>
+        </navbar>
+        <div className="works_grid ">
           {posts &&
             posts.length > 0 &&
             posts.map((post) => (
               <div
                 className={`post_feature_outer ` + post.tags.edges[0].node.name}
               >
-                {console.log(post.tags.edges[0].node.name)}
                 <Link href={post.path}>
                   <h1 className="post_feature_title">{post.title}</h1>
                   <img
