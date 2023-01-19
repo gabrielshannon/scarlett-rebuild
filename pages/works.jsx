@@ -1,23 +1,12 @@
 import React from 'react';
-
 import { gql } from '@apollo/client';
-import ArticleCard from './components/ArticleCard';
 import { getApolloClient } from './api/hello';
 import Link from 'next/link';
-import { HideScroll } from 'react-hide-on-scroll';
 import { useState, useEffect } from 'react';
 import { useDetectScroll } from '@smakss/react-scroll-direction';
 
 const works = ({ page, posts }) => {
   const [scrollDir] = useDetectScroll({});
-
-  const [navbarOn, setNavbar] = useState(false);
-
-  const changeBackground = () => {
-    if (window.scrollY) {
-      setNavbar(true);
-    }
-  };
 
   useEffect(() => {
     console.log(scrollDir)
