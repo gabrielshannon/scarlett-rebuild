@@ -127,11 +127,11 @@ a {
 
 .desktop_menu {
   font-family: Queens;
-  font-size: 8vw;
+  font-size: 8.8vw;
   color: white;
   /* background-color: white; */
   position: absolute;
-  bottom: 0;
+  bottom: -25px;
   left: 50;
   z-index: 1000;
   left: 50%;
@@ -149,7 +149,7 @@ a {
   color: black;
   background-color: white;
   position: absolute;
-  bottom: 0;
+  bottom: -45px;
   left: 50;
   z-index: 1000;
   left: 50%;
@@ -159,6 +159,9 @@ a {
   display: flex;
   justify-content: center;
   gap: 14px;
+}
+.navbar {
+  display: none;
 }
 
 .hero_section {
@@ -176,6 +179,7 @@ a {
 }
 
 .title_option {
+  all:unset;
   position: relative;
   top: 0;
   transition: top ease 0.1s;

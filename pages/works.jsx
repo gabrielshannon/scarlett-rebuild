@@ -4,6 +4,7 @@ import { gql } from '@apollo/client';
 import ArticleCard from './components/ArticleCard';
 import { getApolloClient } from './api/hello';
 import Link from 'next/link';
+import { HideScroll } from 'react-hide-on-scroll';
 
 // const works = ({ page, posts }) => {
 //   return (
@@ -23,13 +24,13 @@ import Link from 'next/link';
 //           </div>
 //           <div class="post_feature_outer short">
 //             <a href="/posts/vouge-shoot">
-              
+
 //                 <h1 class="post_feature_title">Vouge Shoot</h1>
 //                 <img
 //                   class="post_feature_img"
 //                   src="https://scarlettdata.online/wp-content/uploads/2022/10/5.jpg"
 //                 ></img>
-              
+
 //             </a>
 //           </div>
 //           <div class="post_feature_outer tall">
@@ -76,8 +77,7 @@ import Link from 'next/link';
 //               </div>
 //             </a>
 //           </div>
-          
-          
+
 //         </div>
 //       </main>
 //     </div>
@@ -88,26 +88,25 @@ const works = ({ page, posts }) => {
   return (
     <div>
       <main className="BoldFont">
-      <p class="works_menu">
-                    <a class="title_option" href="/">HOME</a>,
-                    <a class="title_option" href="/works">WORKS</a>,
-                    <a class="title_option" href="/about">ABOUT</a>,
-                    <a class="title_option" href="">CONTACT</a>
-        </p>
+
+          <div >
+            Hidden on scrolling down
+          </div>
+     
         <div className="works_grid">
           {posts &&
             posts.length > 0 &&
             posts.map((post) => (
-              <div className={`post_feature_outer ` + post.tags.edges[0].node.name}>
+              <div
+                className={`post_feature_outer ` + post.tags.edges[0].node.name}
+              >
                 {console.log(post.tags.edges[0].node.name)}
                 <Link href={post.path}>
-              
-                    <h1 className="post_feature_title">{post.title}</h1>
-                    <img
-                      className="post_feature_img"
-                      src={post.featuredImage.node.mediaItemUrl}
-                    />
-              
+                  <h1 className="post_feature_title">{post.title}</h1>
+                  <img
+                    className="post_feature_img"
+                    src={post.featuredImage.node.mediaItemUrl}
+                  />
                 </Link>
               </div>
             ))}
