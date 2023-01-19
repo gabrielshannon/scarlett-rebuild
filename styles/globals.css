@@ -106,6 +106,13 @@ a {
   src: url('../public/fonts/Canela-Thin.ttf');
 }
 
+@font-face {
+  font-family: 'Outward';
+  src: url('../public/webfonts/outward-block-webfont.ttf') format('truetype');
+  font-weight: lighter;
+  font-style: normal;
+}
+
 .home_section {
   height: 100vh;
   display: flex;
@@ -118,10 +125,12 @@ a {
   left: 50%;
   transform: translate(-50%, 0);
   top: 5px;
-  font-size: 28px;
+  font-size: 96px;
   color: white;
   z-index: 1000;
   text-decoration: underline;
+  font-family: 'Outward';
+  text-shadow: 2px 2px black
 }
 
 .navbar {
@@ -129,6 +138,30 @@ a {
   font-family: Queens;
   font-size: 8.8vw;
   color: white;
+  position: absolute;
+  bottom: -25px;
+  left: 50;
+  z-index: 1000;
+  left: 50%;
+  transform: translate(-50%, 0);
+  position: fixed;
+  width: 100%;
+  justify-content: center;
+  gap: 14px;
+  opacity: 0;
+  background-color: transparent;
+  -webkit-animation-name: fadeOut;
+  -webkit-animation-duration: 1s;
+  animation-name: fadeOut;
+  animation-duration: 1s;
+  animation-play-state: paused;
+}
+
+.navbar_info {
+  display: flex;
+  font-family: Queens;
+  font-size: 8.8vw;
+  color: black;
   position: absolute;
   bottom: -25px;
   left: 50;
@@ -167,7 +200,6 @@ a {
   bottom: 0px;
   position: fixed;
   bottom: -25px;
-  
 }
 
 .navbar-about {
@@ -347,6 +379,9 @@ grid-container {
 
 .top-section {
   padding: 80px;
+  font-family: 'Canela';
+  font-size: 24px;
+  line-height: 32px;
 }
 
 .bio_section {
