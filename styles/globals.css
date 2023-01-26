@@ -134,11 +134,11 @@ a {
 
 .navbar {
   display: flex;
-  font-family: Queens;
+  font-family: 'Queens';
   font-size: 8.8vw;
   color: white;
   position: absolute;
-  bottom: -25px;
+  bottom: 12px;
   left: 50;
   z-index: 1000;
   left: 50%;
@@ -198,6 +198,27 @@ a {
   opacity: 0;
   background-color: white;
   color: black;
+  bottom: 0px;
+  position: fixed;
+  bottom: -25px;
+}
+
+.navbar-home{
+  display: flex;
+  font-family: Queens;
+  font-size: 8.8vw;
+  bottom: -25px;
+  left: 50;
+  z-index: 1000;
+  left: 50%;
+  transform: translate(-50%, 0);
+  position: absolute;
+  width: 100%;
+  justify-content: center;
+  gap: 14px;
+
+
+  color: white;
   bottom: 0px;
   position: fixed;
   bottom: -25px;
