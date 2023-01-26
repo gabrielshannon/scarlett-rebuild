@@ -19,7 +19,7 @@ export default function Post({ post, site }) {
       <main className={styles.main}>
 
         <div className={styles.grid}>
-        <div className='max-w-xl p-10 text-center text-gray-50 MainFont'>
+        <div className='post_inner_content'>
           <div className={styles.content} dangerouslySetInnerHTML={{
             __html: post.content
           }} />
