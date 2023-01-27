@@ -430,6 +430,28 @@ grid-container {
   font-family: 'Queens';
 }
 
+
+
+/* ///////////// */
+
+.post-feature {
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.post-feature-inner {
+  background-color: red;
+  padding: 25px;
+
+  width: 600px;
+}
+
+
+
 /* //////////// ABOUT */
 
 .about {
