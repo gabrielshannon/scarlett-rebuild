@@ -55,7 +55,7 @@ export default function Home({ page, posts }) {
               {index === current && (
                 <>
                   <p class="desktop_logo">Scarlett Casciello</p>
-                  <navbar class="navbar home">
+                  <navbar class="navbar-home">
                     <div class="title_option">
                       <a href="/">HOME</a>,
                     </div>
