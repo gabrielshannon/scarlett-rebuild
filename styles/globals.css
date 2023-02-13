@@ -203,7 +203,7 @@ a {
   bottom: -25px;
 }
 
-.navbar-home{
+.navbar-home {
   display: flex;
   font-family: Queens;
   font-size: 8.8vw;
@@ -216,7 +216,6 @@ a {
   width: 100%;
   justify-content: center;
   gap: 14px;
-
 
   color: white;
   bottom: 0px;
@@ -384,7 +383,6 @@ grid-container {
 }
 
 .post_feature_outer {
-
   position: relative;
 }
 
@@ -430,8 +428,6 @@ grid-container {
   font-family: 'Queens';
 }
 
-
-
 /* ///////////// */
 
 .post-feature {
@@ -446,11 +442,13 @@ grid-container {
 .post-feature-inner {
   background-color: red;
   padding: 25px;
-
-  width: 600px;
+  width: 1200px;
 }
 
-
+.wp-block-image {
+  display: flex;
+  justify-content: center;
+}
 
 /* //////////// ABOUT */
 

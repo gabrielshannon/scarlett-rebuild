@@ -7,36 +7,44 @@ import { getApolloClient } from '../api/hello';
 import styles from '../../styles/Home.module.css';
 
 export default function Post({ post, site }) {
+  const { date, title, content, author, categories } = post;
   return (
-    <div className="bg-[#141414]">
-      <Head>
-        <title>{post.title}</title>
-        <meta
-          name="description"
-          content={`Read more about ${post.title} on ${site.title}`}
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <article className='post-article'>
+    <h3>{title}</h3>
 
-      <main className='post-feature'>
-        <h1>{post.title}</h1>
+    <div
+      className="post-content"
+      dangerouslySetInnerHTML={{ __html: content }}
+    />
+
+  </article>
+    // <div className="bg-[#141414]">
     
-          <div className='post-feature-inner'
-            dangerouslySetInnerHTML={{
-              __html: post.content,
-            }}
-          />
-        
+    //   <Head>
+    //     <title>{post.title}</title>
+    //     <meta
+    //       name="description"
+    //       content={`Read more about ${post.title} on ${site.title}`}
+    //     />
+    //     <link rel="icon" href="/favicon.ico" />
+    //   </Head>
 
-        <p>
-          <Link href="/">
-            {/* <a> */}
-            &lt; GO BACK
-            {/* </a> */}
-          </Link>
-        </p>
-      </main>
-    </div>
+    //   <main className='post-feature'>
+    //     <h1>{post.title}</h1>
+    //       <div className='post-feature-inner'
+    //         dangerouslySetInnerHTML={{
+    //           __html: post.content,
+    //         }}
+    //       />
+    //     <p>
+    //       <Link href="/">
+    //         {/* <a> */}
+    //         &lt; GO BACK
+    //         {/* </a> */}
+    //       </Link>
+    //     </p>
+    //   </main>
+    // </div>
   );
 }
 
